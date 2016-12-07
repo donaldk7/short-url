@@ -1,5 +1,23 @@
 <html>
 <body>
     <h1>URL Shortener Microservice</h1>
+    
+    <p>This microservice allows users to pass a URL as a parameter and receive a shortened URL</p>
+    <p>When you use the shortened URL, it will link to the original url</p>
+    
+    <h3>Example usage</h3>
+    
+    <a href = 'https://short-url7.herokuapp.com/https://www.google.com'>https://short-url7.herokuapp.com/https://www.google.com</a>
+    <p></p>
+    <a href = 'https://short-url7.herokuapp.com/https://www.yahoo.com'>https://short-url7.herokuapp.com/https://www.yahoo.com</a>
+    
+    <h3>Will output</h3>
+    <p>{"Long URL":"https://www.google.com","Short URL":1000}</p>
+    <p>{"Long URL":"https://www.yahoo.com","Short URL":2000}</p>
+ 
+    <h3>Following usage</h3>
+    <a href = 'https://short-url7.herokuapp.com/1000'>https://short-url7.herokuapp.com/1000</a>
+    <h3>Will link to</h3>
+    <a href = 'https://www.google.com'>https://www.google.com'</a>
 </body>
 </html>

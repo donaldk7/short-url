@@ -1,3 +1,4 @@
+
 var express = require('express')
 var app = express()
 var path = require('path')
@@ -10,16 +11,16 @@ db['https://www.google.com'] = 1000;
 db['https://www.yahoo.com'] = 2000;
 var output = {'Long URL': null, 'Short URL': null}
 
-app.get('/*', function(req, res) {
+app.get('/*', function(req, res) {		// the /* makes sure the whole path is copied after root
     var reqUrl = String(req.url)
-    var theurl = reqUrl.substring(1)
+    var theurl = reqUrl.substring(1)	// take away the extra / in the front
     
     if (isNumber(theurl) && Number(theurl) < 10000 && Number(theurl) >= 1000) { // if it's short-url number
         var address = findKey(theurl)
         if (address == '') {    // not in db
             res.send('The short-url "' + theurl +'" does not exist in the database')
         } else {        // if short-url matches a db record
-            theurl = address
+            res.send('<a href = ' + address + '>' + address + '</a>')
         }
     } else if (!validUrl.isUri(theurl)) {   // when the url is not valid
         res.send(theurl +' is not a valid URL')
